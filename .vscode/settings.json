@@ -1,0 +1,20 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    "python.autoComplete.extraPaths": [
+        "/opt/rmf_demos/install/rmf_demos_tasks/lib/python3.12/site-packages",
+        "/opt/rmf_demos/install/rmf_demos_fleet_adapter/lib/python3.12/site-packages",
+        "/opt/rmf_demos/install/rmf_demos_bridges/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/rmf_demos/install/rmf_demos_tasks/lib/python3.12/site-packages",
+        "/opt/rmf_demos/install/rmf_demos_fleet_adapter/lib/python3.12/site-packages",
+        "/opt/rmf_demos/install/rmf_demos_bridges/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+}

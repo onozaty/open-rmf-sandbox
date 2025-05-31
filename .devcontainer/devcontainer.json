@@ -1,0 +1,31 @@
+{
+  "name": "Open RMF Sandbox",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools-extension-pack",
+        "ms-python.python",
+        "ms-python.black-formatter",
+        "ms-iot.vscode-ros"
+      ],
+      "settings": {
+      }
+    }
+  },
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "ROS_DOMAIN_ID": "42"
+  },
+  "runArgs": [
+    "--network=host",
+    "--privileged",
+    "-v", "/tmp/.X11-unix:/tmp/.X11-unix:rw"
+  ],
+  "postCreateCommand": "echo 'Welcome to the Open RMF Sandbox!'\n",
+  "remoteUser": "ubuntu",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace"
+}
