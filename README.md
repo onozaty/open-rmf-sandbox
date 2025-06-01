@@ -1,6 +1,29 @@
 # open-rmf-sandbox
 
-## Unable to find uri[model://Open-RMF/CleanerBotA]
+Open-RMFのデモをDevContainer上で動くようにしたものです。ROS 2のバージョンはjazzyになります。
+
+- [open\-rmf/rmf\_demos: Demonstrations of the Open\-RMF](https://github.com/open-rmf/rmf_demos)
+
+[Demo Worlds](https://github.com/open-rmf/rmf_demos?tab=readme-ov-file#demo-worlds) の、Hotel World と Office World が動作することを確認しています。
+
+```
+# Office World
+ros2 launch rmf_demos_gz office.launch.xml
+
+# tasks
+ros2 run rmf_demos_tasks dispatch_delivery -p pantry -ph coke_dispenser -d hardware_2 -dh coke_ingestor --use_sim_time
+ros2 run rmf_demos_tasks dispatch_patrol -p coe lounge -n 3 --use_sim_time
+```
+
+![](./office.gif)
+
+セットアップの内容は、 [.devcontainer/Dockerfile](.devcontainer/Dockerfile) をご参照ください。
+
+## そのままだと動かなかった部分
+
+GitHubのREADMEにある情報だけではエラーが出てしまって修正した部分になります。
+
+### (1) Unable to find uri[model://Open-RMF/CleanerBotA]
 
 ```
 [gz-20] [Err] [Server.cc:86] Error Code 14: [/sdf/world[@name="sim_world"]/include[61]/uri:/opt/rmf_demos/install/rmf_demos_maps/share/rmf_demos_maps/maps/hotel/hotel.world:L815]: Msg: Unable to find uri[model://Open-RMF/CleanerBotA]
@@ -26,7 +49,7 @@ ln -s ../TeleportIngestor ./TeleportIngestor
 ln -s ../TinyRobot ./TinyRobot
 ```
 
-## Failed to load system plugin
+### (2) Failed to load system plugin
 
 ```
 [gz-20] [Err] [SystemLoader.cc:92] Failed to load system plugin [libdoor.so] : Could not find shared library.
@@ -49,7 +72,7 @@ export GZ_SIM_SYSTEM_PLUGIN_PATH=/opt/ros/jazzy/lib/rmf_robot_sim_gz_plugins:$GZ
 export GZ_SIM_SYSTEM_PLUGIN_PATH=/opt/ros/jazzy/lib/rmf_building_sim_gz_plugins:$GZ_SIM_SYSTEM_PLUGIN_PATH
 ```
 
-## Failed to load plugin
+### (3) Failed to load plugin
 
 ```
 [gz-16] [GUI] [Err] [Application.cc:545] Failed to load plugin [toggle_charging] : couldn't find shared library.
